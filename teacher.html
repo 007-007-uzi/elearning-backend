@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+
+  <!-- Bootstrap 5 styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Our own styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top navigation bar -->
+  <nav class="navbar navbar-dark bg-primary px-3">
+    <span class="navbar-brand mb-0 h1">E-Learning Platform</span>
+    <div class="d-flex align-items-center">
+      <span class="text-white me-3" id="teacherName">Teacher</span>
+      <a href="index.html" class="btn btn-light btn-sm" id="logoutBtn">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <h3 id="welcomeText">Welcome, Teacher</h3>
+
+    <!-- Add New Course: form for creating a course -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Add New Course</h5>
+
+        <form id="courseForm">
+          <div class="mb-3">
+            <label for="courseTitle" class="form-label">Course Title</label>
+            <input type="text" class="form-control" id="courseTitle">
+          </div>
+          <div class="mb-3">
+            <label for="courseDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="courseDescription" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="addCourseBtn">Add Course</button>
+        </form>
+
+      </div>
+    </div>
+    <!-- My Courses: list of courses created by this teacher -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title">My Courses</h5>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Students</th>
+            </tr>
+          </thead>
+          <!-- The row below is a sample; real data will replace it later -->
+          <tbody id="courseTableBody">
+            <tr>
+              <td>Sample Course</td>
+              <td>Sample description</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+        <!-- Add Assignment: form for posting a new assignment to a course -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Add Assignment</h5>
+
+        <form id="assignmentForm">
+
+          <!-- Which course the assignment belongs to -->
+          <div class="mb-3">
+            <label for="assignmentCourse" class="form-label">Course</label>
+            <select class="form-select" id="assignmentCourse">
+              <option>Sample Course</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="assignmentTitle" class="form-label">Assignment Title</label>
+            <input type="text" class="form-control" id="assignmentTitle">
+          </div>
+
+          <div class="mb-3">
+            <label for="assignmentDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="assignmentDescription" rows="3"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="assignmentDueDate" class="form-label">Due Date</label>
+            <input type="date" class="form-control" id="assignmentDueDate">
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="addAssignmentBtn">Add Assignment</button>
+        </form>
+
+      </div>
+    </div>
+        <!-- Student Submissions: files uploaded by students for assignments -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Student Submissions</h5>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Assignment</th>
+              <th>File</th>
+              <th>Marks</th>
+            </tr>
+          </thead>
+          <!-- The row below is a sample; real data will replace it later -->
+          <tbody id="submissionTableBody">
+            <tr>
+              <td>Sample Student</td>
+              <td>Sample Assignment</td>
+              <td><a href="#">View file</a></td>
+              <td>
+                <input type="number" class="form-control form-control-sm" placeholder="Marks">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+        <!-- Add Quiz: form for creating a quiz with one multiple-choice question -->
+    <div class="card shadow-sm mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Add Quiz</h5>
+
+        <form id="quizForm">
+
+          <!-- Which course the quiz belongs to -->
+          <div class="mb-3">
+            <label for="quizCourse" class="form-label">Course</label>
+            <select class="form-select" id="quizCourse">
+              <option>Sample Course</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="quizTitle" class="form-label">Quiz Title</label>
+            <input type="text" class="form-control" id="quizTitle">
+          </div>
+
+          <!-- Question -->
+          <div class="mb-3">
+            <label for="quizQuestion" class="form-label">Question</label>
+            <input type="text" class="form-control" id="quizQuestion">
+          </div>
+
+          <!-- Four answer options -->
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="optionA" class="form-label">Option A</label>
+              <input type="text" class="form-control" id="optionA">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="optionB" class="form-label">Option B</label>
+              <input type="text" class="form-control" id="optionB">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="optionC" class="form-label">Option C</label>
+              <input type="text" class="form-control" id="optionC">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="optionD" class="form-label">Option D</label>
+              <input type="text" class="form-control" id="optionD">
+            </div>
+          </div>
+
+          <!-- Which option is the correct answer -->
+          <div class="mb-3">
+            <label for="correctAnswer" class="form-label">Correct Answer</label>
+            <select class="form-select" id="correctAnswer">
+              <option value="A">Option A</option>
+              <option value="B">Option B</option>
+              <option value="C">Option C</option>
+              <option value="D">Option D</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="addQuizBtn">Add Quiz</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

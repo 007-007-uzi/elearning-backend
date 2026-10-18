@@ -1,0 +1,68 @@
+/* ===== COLOR THEME: teal and amber ===== */
+:root {
+  --main: #0F766E;          /* main color: navbar, buttons, titles */
+  --main-dark: #0D5F59;     /* slightly darker: button hover */
+  --main-darker: #0B4E49;   /* darkest: button pressed */
+  --main-rgb: 15, 118, 110; /* same as --main, written as numbers */
+  --accent: #F59E0B;        /* accent color: platform name in navbar */
+  --page-bg: #F0FDFA;       /* page background */
+
+  /* Tell Bootstrap to use our main color instead of blue */
+  --bs-primary: var(--main);
+  --bs-primary-rgb: var(--main-rgb);
+}
+
+/* ===== The rules below use the theme, so you don't edit them ===== */
+
+/* Page background */
+body {
+  background-color: var(--page-bg);
+}
+
+/* Cards: rounded corners, no border */
+.card {
+  border: none;
+  border-radius: 12px;
+}
+
+/* Main headings */
+h2 {
+  color: var(--main);
+  font-weight: 600;
+}
+
+/* Platform name in the navbar */
+.navbar-brand {
+  color: var(--accent) !important;
+}
+
+/* Filled buttons (Login, Submit, Add ...) */
+.btn-primary {
+  --bs-btn-bg: var(--main);
+  --bs-btn-border-color: var(--main);
+  --bs-btn-hover-bg: var(--main-dark);
+  --bs-btn-hover-border-color: var(--main-dark);
+  --bs-btn-active-bg: var(--main-darker);
+  --bs-btn-active-border-color: var(--main-darker);
+  --bs-btn-focus-shadow-rgb: var(--main-rgb);
+  --bs-btn-disabled-bg: var(--main);
+  --bs-btn-disabled-border-color: var(--main);
+}
+
+/* Outlined buttons (the Start button in Quizzes) */
+.btn-outline-primary {
+  --bs-btn-color: var(--main);
+  --bs-btn-border-color: var(--main);
+  --bs-btn-hover-bg: var(--main);
+  --bs-btn-hover-border-color: var(--main);
+  --bs-btn-active-bg: var(--main-dark);
+  --bs-btn-active-border-color: var(--main-dark);
+  --bs-btn-focus-shadow-rgb: var(--main-rgb);
+}
+
+/* Input boxes: colored highlight when clicked */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--main);
+  box-shadow: 0 0 0 0.25rem rgba(var(--main-rgb), 0.25);
+}
