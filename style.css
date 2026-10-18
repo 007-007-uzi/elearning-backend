@@ -1,0 +1,247 @@
+/* ===== COLOR THEME: teal and amber ===== */
+:root {
+  --main: #0F766E;          /* main color: navbar, buttons, titles */
+  --main-dark: #0D5F59;     /* slightly darker: button hover */
+  --main-darker: #0B4E49;   /* darkest: button pressed */
+  --main-rgb: 15, 118, 110; /* same as --main, written as numbers */
+  --accent: #F59E0B;        /* accent color: platform name in navbar */
+  --page-bg: #F0FDFA;       /* page background */
+
+  /* Tell Bootstrap to use our main color instead of blue */
+  --bs-primary: var(--main);
+  --bs-primary-rgb: var(--main-rgb);
+}
+
+/* ===== The rules below use the theme, so you don't edit them ===== */
+
+/* Page background */
+body {
+  background-color: var(--page-bg);
+}
+
+/* Cards: rounded corners, no border */
+.card {
+  border: none;
+  border-radius: 12px;
+}
+
+/* Main headings */
+h2 {
+  color: var(--main);
+  font-weight: 600;
+}
+
+/* Platform name in the navbar */
+.navbar-brand {
+  color: var(--accent) !important;
+}
+
+/* Filled buttons (Login, Submit, Add ...) */
+.btn-primary {
+  --bs-btn-bg: var(--main);
+  --bs-btn-border-color: var(--main);
+  --bs-btn-hover-bg: var(--main-dark);
+  --bs-btn-hover-border-color: var(--main-dark);
+  --bs-btn-active-bg: var(--main-darker);
+  --bs-btn-active-border-color: var(--main-darker);
+  --bs-btn-focus-shadow-rgb: var(--main-rgb);
+  --bs-btn-disabled-bg: var(--main);
+  --bs-btn-disabled-border-color: var(--main);
+}
+
+/* Outlined buttons (the Start button in Quizzes) */
+.btn-outline-primary {
+  --bs-btn-color: var(--main);
+  --bs-btn-border-color: var(--main);
+  --bs-btn-hover-bg: var(--main);
+  --bs-btn-hover-border-color: var(--main);
+  --bs-btn-active-bg: var(--main-dark);
+  --bs-btn-active-border-color: var(--main-dark);
+  --bs-btn-focus-shadow-rgb: var(--main-rgb);
+}
+
+/* Input boxes: colored highlight when clicked */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--main);
+  box-shadow: 0 0 0 0.25rem rgba(var(--main-rgb), 0.25);
+}
+
+
+/* Chat Button (Bottom Right) */
+.chat-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #516b7c; /* Bootstrap primary color */
+    color: white;
+    font-size: 28px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    cursor: pointer;
+    z-index: 1050;
+    transition: transform 0.2s ease, background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-fab:hover {
+    transform: scale(1.1);
+    background-color: #90add8;
+}
+
+/* Chat Popup Window */
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    display: none; /* Shuru mein hidden */
+    flex-direction: column;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+}
+
+.chat-window.show {
+    display: flex;
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #0d6efd;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chat Messages Area */
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Individual Message Bubbles */
+.chat-message {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.chat-message.my-msg {
+    align-self: flex-end;
+    background-color: #0d6efd;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-message.other-msg {
+    align-self: flex-start;
+    background-color: #e9ecef;
+    color: #212529;
+    border-bottom-left-radius: 2px;
+}
+
+.chat-sender {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-bottom: 3px;
+    display: block;
+}
+
+/* Chat Input Area */
+.chat-footer {
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+    background-color: white;
+    display: flex;
+    gap: 10px;
+}
+/* 
+   NAVBAR & BUTTON STYLING (Custom)
+    */
+
+.navbar {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+/* Logout Button ko Round karna */
+#logoutBtn {
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #dc3545; /* Hover par laal rang */
+    color: white;
+    border-color: #dc3545;
+}
+
+/* Search Button ko Round karna (Navbar wala) */
+.btn-search-nav {
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent look */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-search-nav:hover {
+    background-color: white;
+    color: #0d6efd;
+}
+
+/* Search Modal ke andar wala Input Field */
+#searchInput {
+    border-radius: 30px 0 0 30px; /* Left side round */
+    border: 1px solid #ced4da;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+#searchInput:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+/* Search Button (Modal ke andar) */
+#searchBtn {
+    border-radius: 0 30px 30px 0; /* Right side round */
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+/* Search Results Cards ko thoda smooth karna */
+#searchResults .card {
+    border: none;
+    border-left: 5px solid #0d6efd; /* Left border highlight */
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#searchResults .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1) !important;
+}

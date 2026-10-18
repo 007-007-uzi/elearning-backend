@@ -1,83 +1,78 @@
-#  E-Learning Platform - Backend
+# 🎓 E-Learning Platform
 
-Firebase + Cloudinary based backend for E-Learning Platform.
-
----
-
-##  Project Info
-
-| Item | Value |
-|------|-------|
-| **Firebase Project ID** | `e-learning-platform-dde92` |
-| **Firestore Location** | `asia-south1` (Mumbai) |
-| **Cloudinary Cloud** | `fwlslok8` |
-| **Upload Preset** | `elearning_uploads` (Unsigned) |
-| **Hosting URL** | `https://e-learning-platform-dde92.web.app` |
-| **Plan** | Spark (Free) |
+Ek complete aur modern E-Learning Platform jahan Admin, Teachers, aur Students apna alag alag dashboard use kar sakte hain. Yeh project **Firebase** (Backend & Auth) aur **Cloudinary** (File Uploads) par based hai.
 
 ---
 
-##  Services
+## 🚀 Features (Jo Abhi Tak Complete Hain)
 
-| Service | Purpose |
-|---------|---------|
-| **Firebase Auth** | Login / Signup |
-| **Cloud Firestore** | Database |
-| **Firebase Hosting** | Website hosting |
-| **Cloudinary** | File uploads |
+### 1. 🔐 Authentication & Role Management
+- **Secure Login:** Email aur Password ke zariye login.
+- **Role Verification:** Login karte waqt code check karta hai ke user Admin hai, Teacher hai, ya Student. Agar koi Student Admin ka role select karega, toh usay "Access Denied" mil jayega.
+- **Admin User Creation:** Admin dashboard se naye Teachers aur Students ke account bana sakta hai (bina logout hue).
 
----
+### 2. 👑 Admin Dashboard
+- **Manage Users:** Saare users ki list dekhna aur unhe delete karna.
+- **Courses/Subjects:** Naye subjects banayein aur unhe kisi Teacher ko assign karein.
+- **Announcements:** (Coming Soon)
 
-##  Roles
+### 3. 👨‍🏫 Teacher Dashboard
+- **My Courses:** Sirf apne assigned subjects dekhna.
+- **Add Assignments:** Naya assignment banayein, PDF/Image upload karein (Cloudinary) aur Due Date set karein.
+- **Student Submissions:** Students ki upload ki hui files dekhna aur unhe Marks (Grade) dena.
+- **Add Quizzes:** MCQ quizzes banayein.
 
-| Role | Permissions |
-|------|-------------|
-| **Admin** | Full access, user management |
-| **Teacher** | Manage courses, assignments, quizzes, lectures |
-| **Student** | View courses, submit assignments, take quizzes |
-
----
-
-##  Database Collections
-
-| Collection | Purpose |
-|-----------|---------|
-| `users` | User profiles with roles |
-| `courses` | Course listings |
-| `assignments` | Course assignments |
-| `submissions` | Student submissions |
-| `quizzes` | Quizzes with questions |
-| `lectures` | YouTube lecture links |
+### 4. 🎒 Student Dashboard
+- **View Courses:** Apne department aur semester ke subjects dekhna.
+- **Assignments:** Teacher ke diye hue assignments dekhna aur apni file Cloudinary par upload karke submit karna.
+- **Global Chat:** Student aur Teacher aapas mein real-time baat kar sakte hain.
 
 ---
 
-##  Files
+## 🛠️ Technologies Used
 
-| File | Purpose |
-|------|---------|
-| `firestore.rules` | Firestore security rules |
-| `firebase-config.js` | Firebase + Cloudinary config + upload function |
-| `README.md` | Documentation |
+| Technology | Purpose |
+|------------|---------|
+| **Firebase Authentication** | User Login, Signup, aur Role Management |
+| **Cloud Firestore** | NoSQL Database (Users, Subjects, Assignments, Chats) |
+| **Cloudinary** | PDF/Image files upload karne ke liye |
+| **Bootstrap 5** | Responsive aur attractive UI Design |
+| **Vanilla JavaScript** | Frontend logic aur Firebase connection |
+| **Firebase Hosting** | Website ko live karne ke liye |
 
 ---
 
-##  Config Summary
+## 📊 Database Collections (Firestore)
 
-### Firebase
-```javascript
-const firebaseConfig = {
-  apiKey: "AIzaSyCSXeCmCG-muzxyNUCHTrU2k2vEB3qnjc8",
-  authDomain: "e-learning-platform-dde92.firebaseapp.com",
-  projectId: "e-learning-platform-dde92",
-  storageBucket: "e-learning-platform-dde92.firebasestorage.app",
-  messagingSenderId: "664030736751",
-  appId: "1:664030736751:web:a728ab4b3863fee990389a"
-};
+Yeh project Firestore mein in collections ka use karta hai:
 
-### cloudinary config
+1. `users` - Saare users ka data (role: admin, teacher, student).
+2. `subjects` - Courses/Subjects ka data.
+3. `assignments` - Teacher ke upload kiye hue assignments.
+4. `submissions` - Students ki submit ki hui assignments aur unke marks.
+5. `quizzes` - Teacher ke banaye hue quizzes.
+6. `chats` - Global chat ke messages.
 
-const cloudinaryConfig = {
-  cloudName: "fwlslok8",
-  uploadPreset: "elearning_uploads",
-  uploadUrl: "https://api.cloudinary.com/v1_1/fwlslok8/auto/upload"
-};
+---
+
+## 📁 Folder Structure
+
+```text
+elearning-backend/frontend
+│
+├── index.html           # Landing Page (Login)
+├── login.js             # Login Logic (Firebase Auth)
+├── firebase-config.js   # Firebase aur Cloudinary ki keys
+│
+├── admin.html           # Admin Dashboard
+├── admin.js             # Admin Logic (Add/Delete users, subjects)
+│
+├── teacher.html         # Teacher Dashboard
+├── teacher.js           # Teacher Logic (Add assignments, Grade, Quizzes)
+│
+├── student.html         # Student Dashboard
+├── student.js           # Student Logic (Submit assignments, Chat)
+│
+├── style.css            # Custom CSS (Buttons, Chat Box, etc.)
+├── firestore.rules      # Database Security Rules
+└── README.md

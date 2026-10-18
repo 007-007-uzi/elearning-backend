@@ -39,13 +39,12 @@ service cloud.firestore {
       allow update, delete: if isAdmin();
     }
 
-    match /submissions/{submissionId} {
+       match /submissions/{submissionId} {
       allow create: if isStudent() && request.resource.data.studentId == request.auth.uid;
       allow read: if isAdmin() || isTeacher() || 
                    (isStudent() && resource.data.studentId == request.auth.uid);
-      allow update: if isAdmin() || isTeacher();
+      allow update: if isAdmin() || isTeacher(); // Teacher grading ke liye
     }
-
     match /quizzes/{quizId} {
       allow read: if isLoggedIn();
       allow write: if isTeacher() || isAdmin();

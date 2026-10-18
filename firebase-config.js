@@ -33,13 +33,15 @@ import {
 
 //  firebase config
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCSXeCmCG-muzxyNUCHTrU2k2vEB3qnjc8",
-  authDomain: "e-learning-platform-dde92.firebaseapp.com",
-  projectId: "e-learning-platform-dde92",
-  storageBucket: "e-learning-platform-dde92.firebasestorage.app",
+  apiKey: "AIzaSyCSXeCmCG-muzxyNUHCTrU2k2vEB3qnjc8",
+  authDomain: "e-learning--platform-dde92.firebaseapp.com",
+  projectId: "e-learning--platform-dde92",
+  storageBucket: "e-learning--platform-dde92.firebasestorage.app",
   messagingSenderId: "664030736751",
-  appId: "1:664030736751:web:a728ab4b3863fee990389a"
+  appId: "1:664030736751:web:a728ab4b3863fee990389a",
+  measurementId: "G-WRT8LF5B6J"
 };
 
 
